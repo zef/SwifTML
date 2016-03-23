@@ -3,7 +3,7 @@ import Foundation
 // let read = try! String(contentsOfFile: "/Users/zef/code/Fly/HTMLTags.swift")
 func write(text: String, path: String) {
     do {
-        try text.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding)
+        try text.write(toFile: path, atomically: false, encoding: NSUTF8StringEncoding)
     } catch {
         print("file write failed")
     }
@@ -53,14 +53,14 @@ struct TagDefinition {
 
             var contentPrefixArgs = args
             contentArg.type = "HTMLElement"
-            contentPrefixArgs.insert(contentArg, atIndex: 0)
+            contentPrefixArgs.insert(contentArg, at: 0)
             def.addLine("public func \(functionName)(\(Argument.constructString(contentPrefixArgs))) -> Tag {")
             def += Argument.attributeCombinationCode(args)
             def.addLine("return Tag(\(tag.quoted), id: id, classes: classes, data: data, attributes: attributes, [content])", indent: 1)
             def.addLine("}")
         }
 
-        def += def.stringByReplacingOccurrencesOfString("public func", withString: "public static func")
+        def += def.replacingOccurrences(of: "public func", with: "public static func")
         def.addLine("")
 
         return def
@@ -128,7 +128,7 @@ struct Argument {
 
     static func constructString(arguments: [Argument]) -> String {
         var strings = [String]()
-        for (index, argument) in arguments.enumerated {
+        for (index, argument) in arguments.enumerated() {
             let isFirst = index == 0
             strings.append(argument.string(isFirst))
         }
@@ -170,7 +170,8 @@ let basicTagGroups = [
 
 var tags = basicTagGroups.reduce([TagDefinition]()) { tags, group in
     var tags = tags
-    tags.append(contentsOf: group.componentsSeparatedByString(" ").map { TagDefinition(functionName: $0.capitalizedString, tag: $0, arguments: []) } )
+    let newTags = group.componentsSeparated(by: " ").map { TagDefinition(functionName: $0.capitalized, tag: $0, arguments: []) }
+    tags.append(contentsOf: newTags)
     return tags
 }
 tags.append(contentsOf: customTags)
@@ -179,13 +180,11 @@ var code = "// This file is auto-generated, editing by hand is not recommended"
 code.addLine("")
 code.addLine("extension SwifTML {")
 for tag in tags {
-    for line in tag.methodDefinition.componentsSeparatedByString("\n") {
+    for line in tag.methodDefinition.componentsSeparated(by: "\n") {
         code.addLine(line, indent: 1)
     }
 }
 code.addLine("}")
 
-write(code, path: "HTMLViewTags.swift")
-write(code, path: "../Sources/HTMLTags.swift")
-write(code, path: "../HTMLBuilder.playground/Sources/HTMLTags.swift")
+write(code, path: "./Sources/GeneratedTags.swift")
 
