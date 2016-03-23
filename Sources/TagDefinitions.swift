@@ -368,6 +368,14 @@ extension SwifTML {
     }
 
 
+    public func Meta(id id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+        return Tag("meta", "", id: id, classes: classes, data: data, attributes: attributes)
+    }
+    public static func Meta(id id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+        return Tag("meta", "", id: id, classes: classes, data: data, attributes: attributes)
+    }
+
+
     public func Link(to to: String, target: String? = nil, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
         var attributes = attributes
         attributes["href"] = to

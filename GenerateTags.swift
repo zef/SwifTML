@@ -169,7 +169,7 @@ let basicTagGroups = [
     "h1 h2 h3 h4 h5 h6",
     "p strong em i",
     "ul ol li",
-    "br hr",
+    "br hr meta",
 ]
 
 var tags = basicTagGroups.reduce([TagDefinition]()) { tags, group in
