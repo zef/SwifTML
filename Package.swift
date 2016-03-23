@@ -2,6 +2,6 @@ import PackageDescription
 
 let package = Package(
     name: "SwifTML",
-    dependencies: [ ]
+    exclude: ["GenerateTags.swift" ]
 )
 
