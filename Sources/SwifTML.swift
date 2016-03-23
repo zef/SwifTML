@@ -10,9 +10,9 @@ extension String: HTMLElement {
     public var htmlString: String { return self }
 }
 
-public protocol HasHTML { }
+public protocol SwifTML { }
 
-public protocol HTMLView: HasHTML {
+public protocol HTMLView: SwifTML {
     var render: String { get }
 }
 

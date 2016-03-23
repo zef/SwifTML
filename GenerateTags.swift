@@ -177,7 +177,7 @@ tags.append(contentsOf: customTags)
 
 var code = "// This file is auto-generated, editing by hand is not recommended"
 code.addLine("")
-code.addLine("extension HasHTML {")
+code.addLine("extension SwifTML {")
 for tag in tags {
     for line in tag.methodDefinition.componentsSeparatedByString("\n") {
         code.addLine(line, indent: 1)

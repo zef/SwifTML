@@ -1,6 +1,6 @@
 // This file is auto-generated, editing by hand is not recommended
 
-extension HasHTML {
+extension SwifTML {
 
     public func Html(id id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
         return Tag("html", id: id, classes: classes, data: data, attributes: attributes, content)
