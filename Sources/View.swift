@@ -5,19 +5,24 @@ public protocol HTMLView: SwifTML {
 }
 
 
-struct HTML5: HTMLView {
+public struct HTML5: HTMLView {
     let doctype = "<!DOCTYPE html>"
-    var head: [HTMLElement]
-    var body: [HTMLElement]
+    public var head: [HTMLElement]
+    public var body: [HTMLElement]
 
-    var template: Tag {
+    public init(head: [HTMLElement], body: [HTMLElement]) {
+        self.head = head
+        self.body = body
+    }
+
+    public var template: Tag {
         return Html([
             Head(head),
             Body(body)
         ])
     }
 
-    var render: String {
+    public var render: String {
         return doctype + template.htmlString
     }
 }
