@@ -10,12 +10,6 @@ extension String: HTMLElement {
     public var htmlString: String { return self }
 }
 
-public protocol SwifTML { }
-
-public protocol HTMLView: SwifTML {
-    var render: String { get }
-}
-
 public struct Tag: HTMLElement {
     public var type: String
     public var content = [HTMLElement]()
@@ -119,22 +113,5 @@ extension Tag {
                 self = other
             }
         }
-    }
-}
-
-struct HTML5: HTMLView {
-    let doctype = "<!DOCTYPE html>"
-    var head: [HTMLElement]
-    var body: [HTMLElement]
-
-    var template: Tag {
-        return Html([
-            Head(head),
-            Body(body)
-        ])
-    }
-
-    var render: String {
-        return doctype + template.htmlString
     }
 }
