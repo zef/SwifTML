@@ -44,6 +44,20 @@ extension SwifTML {
     }
 
 
+    public func Title(id id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
+        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, content)
+    }
+    public func Title(content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, [content])
+    }
+    public static func Title(id id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
+        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, content)
+    }
+    public static func Title(content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, [content])
+    }
+
+
     public func Div(id id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
         return Tag("div", id: id, classes: classes, data: data, attributes: attributes, content)
     }

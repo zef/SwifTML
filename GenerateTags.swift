@@ -163,7 +163,7 @@ let customTags = [
 
 
 let basicTagGroups = [
-    "html head body",
+    "html head body title",
     "div span",
     "article aside header footer nav main section",
     "h1 h2 h3 h4 h5 h6",
