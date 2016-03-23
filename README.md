@@ -22,7 +22,7 @@ could also make it easy to enforce semantically valid HTML output.
 
 Other templating solutions require more indirection and give up type-safety/compiler benefits.
 
-Cues have been taken from the tag helpers in [Rails](http://rubyonrails.org) and templating languages like [Slim](http://slim-lang.com).
+Cues have been taken from the [tag helpers in Rails](http://api.rubyonrails.org/classes/ActionView/Helpers/TagHelper.html#method-i-content_tag) and templating languages like [Slim](http://slim-lang.com).
 
 We'll see if this is a good idea long-term, but I find this preferable to existing Swift templating
 solutions that I'm aware of.
