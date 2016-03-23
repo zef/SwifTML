@@ -10,6 +10,9 @@ framework.
 Some pre-defined tag helpers have been customized with special arguments and behavior.
 
 
+If you want to control the whitespace between elements, you can use the following helpers.
+
+
 ### Never-Asked Questions
 
 ##### Why would you do this?
@@ -49,4 +52,8 @@ available. The function definitions for tags look more like a struct, but I don'
 them to be individual structs. One benefit here is they each return an instance of the `Tag` struct.
 
 
+## To Do
+
+- [ ] Experiment with short-hand syntax like `Tag("ul.listClass>li#itemID", "hello")` outputting
+  `<ul class="listClass"><li id="itemID">hello</li></ul>`
 
