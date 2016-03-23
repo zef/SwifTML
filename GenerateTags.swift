@@ -147,7 +147,11 @@ let customTags = [
     TagDefinition(functionName: "Img", tag: "img", arguments: [
         Argument(label: "src", type: "String", isOptional: false, defaultValue: nil, requireLabel: true, addToAttributesAs: "src"),
         Argument(label: "alt", type: "String", isOptional: false, defaultValue: "\"\"", requireLabel: true, addToAttributesAs: "alt")
-    ])
+    ]),
+    TagDefinition(functionName: "Stylesheet", tag: "link", arguments: [
+        Argument(label: "at", type: "String", isOptional: false, defaultValue: "\"\"", requireLabel: true, addToAttributesAs: "href"),
+        Argument(label: "rel", type: "String", isOptional: false, defaultValue: "\"stylesheet\"", requireLabel: true, addToAttributesAs: "rel"),
+    ]),
     // "input": "type"
     // text|password|checkbox|radio|submit|reset|file|hidden|image|button
 

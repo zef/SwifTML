@@ -407,4 +407,18 @@ extension SwifTML {
         return Tag("img", "", id: id, classes: classes, data: data, attributes: attributes)
     }
 
+
+    public func Stylesheet(at at: String = "", rel: String = "stylesheet", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+        var attributes = attributes
+        attributes["href"] = at
+        attributes["rel"] = rel
+        return Tag("link", "", id: id, classes: classes, data: data, attributes: attributes)
+    }
+    public static func Stylesheet(at at: String = "", rel: String = "stylesheet", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+        var attributes = attributes
+        attributes["href"] = at
+        attributes["rel"] = rel
+        return Tag("link", "", id: id, classes: classes, data: data, attributes: attributes)
+    }
+
 }
