@@ -88,6 +88,13 @@ them to be individual structs. One benefit here is they each return an instance 
 
 ## To Do
 
+- [ ] Refactor arguments to take enum cases for attributes instead of each type of argument having its own argument pair.
+Something like:
+```Swift
+Div("content", attributes: .data("name", "value"), .id("page-123"), .class("button"), .classes(["one", "two", "three"]))
+-> <div data-name="value", id="page-123, class="button one two three">content</div>
+// class and classes would be properly combined, in addition to style classes and other similar things.
+```
 - [ ] Experiment with short-hand syntax (ZenCoding/Emmet style) like `Tag("ul.listClass>li#itemID", "hello")` outputting
   `<ul class="listClass"><li id="itemID">hello</li></ul>`
 
