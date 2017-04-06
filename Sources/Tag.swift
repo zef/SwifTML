@@ -18,13 +18,13 @@ public struct Tag: HTMLElement {
 
     public init(_ type: String, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) {
         self.type = type
-        self.attributes = combinedAttributes(attributes, id: id, classes: classes, data: data)
+        self.attributes = combined(attributes: attributes, id: id, classes: classes, data: data)
         self.content = content
     }
 
     public init(_ type: String, _ content: HTMLElement = "", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) {
         self.type = type
-        self.attributes = combinedAttributes(attributes, id: id, classes: classes, data: data)
+        self.attributes = combined(attributes: attributes, id: id, classes: classes, data: data)
         self.content = [content]
     }
 
@@ -49,16 +49,16 @@ public struct Tag: HTMLElement {
 
     private var attributeString: String {
         guard !attributes.isEmpty else { return "" }
-        return attributes.reduce("", combine: { (result, pair) -> String in
+        return attributes.reduce("") { (result, pair) -> String in
             var result = result
             let (key, value) = pair
             // TODO: escape quotes and other chars in value
             result += " \(key)=\"\(value)\""
             return result
-        })
+        }
     }
 
-    private func combinedAttributes(attributes: HTMLAttributes, id: String?, classes: [String]?, data: HTMLAttributes?) -> HTMLAttributes {
+    private func combined(attributes: HTMLAttributes, id: String?, classes: [String]?, data: HTMLAttributes?) -> HTMLAttributes {
         var attributes = attributes
         if let data = data {
             for (name, value) in data {
