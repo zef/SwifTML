@@ -3,14 +3,48 @@
 SwifTML allows you to build HTML pages or fragments directly in Swift. Part of the [Fly](https://github.com/zef/Fly)
 framework.
 
+Download the included playground to see how it works.
+
+![Playground Image](/PlaygroundDemo.png?raw=true)
+
+```swift
+// TODO code sample
+```
+The built-in Tag definitions are auto-generated, with some pre-defined tag helpers that are customized with special arguments and behavior.
+
+Examples of custom tags are currently `Link`, `Img`, and `Stylesheet`, with more ideas written down.
+
+You are encouraged to define your own tag helpers with an extension:
+
 ```swift
 // TODO code sample
 ```
 
-Some pre-defined tag helpers have been customized with special arguments and behavior.
+There are some helpers to control the whitespace between elements, you have to define these yourself in your project.
+See the playground for a usage example.
 
+```swift
+prefix operator <<
+prefix func <<(tag: Tag) -> Tag {
+    var tag = tag
+    tag.whitespace.combine(.Pre)
+    return tag
+}
 
-If you want to control the whitespace between elements, you can use the following helpers.
+postfix operator >>
+postfix func >>(tag: Tag) -> Tag {
+    var tag = tag
+    tag.whitespace.combine(.Post)
+    return tag
+}
+
+prefix operator <<>>
+prefix func <<>>(tag: Tag) -> Tag {
+    var tag = tag
+    tag.whitespace = .All
+    return tag
+}
+```
 
 
 ### Never-Asked Questions
@@ -54,6 +88,6 @@ them to be individual structs. One benefit here is they each return an instance 
 
 ## To Do
 
-- [ ] Experiment with short-hand syntax like `Tag("ul.listClass>li#itemID", "hello")` outputting
+- [ ] Experiment with short-hand syntax (ZenCoding/Emmet style) like `Tag("ul.listClass>li#itemID", "hello")` outputting
   `<ul class="listClass"><li id="itemID">hello</li></ul>`
 
