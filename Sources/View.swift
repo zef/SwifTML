@@ -4,7 +4,6 @@ public protocol HTMLView: SwifTML {
     var render: String { get }
 }
 
-
 public struct HTML5: HTMLView {
     let doctype = "<!DOCTYPE html>"
     public var head: [HTMLElement]

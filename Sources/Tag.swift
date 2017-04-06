@@ -103,7 +103,7 @@ extension Tag {
             }
         }
 
-        public mutating func combine(other: Whitespace) {
+        public mutating func combine(_ other: Whitespace) {
             switch other {
             case .Pre where self == .Post:
                 self = .All
