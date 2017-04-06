@@ -74,7 +74,6 @@ struct Bootstrap: HTMLView {
             ])
         ])
     }
-
 }
 
 struct ProductPage: HTMLView {

@@ -82,6 +82,28 @@ extension Tag: CustomStringConvertible {
     }
 }
 
+prefix operator <<
+prefix func <<(tag: Tag) -> Tag {
+    var tag = tag
+    tag.whitespace.combine(.Pre)
+    return tag
+}
+
+postfix operator >>
+postfix func >>(tag: Tag) -> Tag {
+    var tag = tag
+    tag.whitespace.combine(.Post)
+    return tag
+}
+
+prefix operator <<>>
+prefix func <<>>(tag: Tag) -> Tag {
+    var tag = tag
+    tag.whitespace = .All
+    return tag
+}
+
+
 extension Tag {
     public enum Whitespace {
         case None, Pre, Post, All
