@@ -14,7 +14,11 @@ struct MyView: HTMLView {
             ], body: [
                 Header(H1("We're writing HTML")),
                 P("But in Swift"),
-                P("Let's make a list for fun!"),
+                P("Tags can have id, classes, and attributes added to them like this one does.",
+                    id: "who-uses-ids-anymore",
+                    classes: ["whatever"],
+                    attributes: ["style": "background-color: #222; color: #fff; padding: 4px"]),
+                P("Now let's make a list for fun!"),
                 Hr(),
                 Section([
                     H3("This is a list:"),
