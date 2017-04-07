@@ -10,6 +10,52 @@ extension String: HTMLElement {
     public var htmlString: String { return self }
 }
 
+enum Attribute {
+    case id(String)
+    case `class`(String)
+    case classes([String])
+    case data(key: String, value: String)
+    case attribute(key: String, value: String)
+    case style(String)
+
+    // could be useful to have some resettable attributes?
+    // case resetClasses
+    // case resetStyle
+    // case resetAll
+
+    typealias AttributePair = (key: String, value: String)
+
+    var attributePair: AttributePair {
+        switch self {
+        case .id(let value):
+            return ("id", value)
+        case .class(let value):
+            return ("class", value)
+        case .classes(let value):
+            return ("class", value.joined(separator: " "))
+        case .data(let key, let value):
+            // TODO: escape quotes and other chars in value
+            // anywhere else besides data? Probably style too?
+            return ("data-\(key)", value)
+        case .attribute(let key, let value):
+            return (key, value)
+        case .style(let value):
+            return ("style", value)
+        }
+    }
+
+    static func combined(attributes: [Attribute]) -> String {
+        var normalized = [String: String]()
+        for attribute in attributes {
+            let pair = attribute.attributePair
+            normalized[pair.key] = pair.value
+        }
+        return normalized.map { key, value in
+            return "\(key)=\"\(value)\""
+        }.joined(separator: " ")
+    }
+}
+
 public struct Tag: HTMLElement {
     public var type: String
     public var content = [HTMLElement]()
