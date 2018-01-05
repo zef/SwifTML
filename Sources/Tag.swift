@@ -10,14 +10,13 @@ extension String: HTMLElement {
     public var htmlString: String { return self }
 }
 
-enum Attribute {
+public enum Attribute {
     case id(String)
     case `class`(String)
     case classes([String])
-    case data(key: String, value: String)
-    case attribute(key: String, value: String)
+    case data(String, String)
+    case attribute(String, String)
     case style(String)
-
     // could be useful to have some resettable attributes?
     // case resetClasses
     // case resetStyle
@@ -44,7 +43,7 @@ enum Attribute {
         }
     }
 
-    static func combined(attributes: [Attribute]) -> String {
+    static func tagString(attributes: [Attribute]) -> String {
         var normalized = [String: String]()
         for attribute in attributes {
             let pair = attribute.attributePair
@@ -59,18 +58,18 @@ enum Attribute {
 public struct Tag: HTMLElement {
     public var type: String
     public var content = [HTMLElement]()
-    public var attributes = HTMLAttributes()
+    public var attributes = [Attribute]()
     public var whitespace = Whitespace.None
 
-    public init(_ type: String, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) {
+    public init(_ type: String, attributes: [Attribute] = [], _ content: [HTMLElement]) {
         self.type = type
-        self.attributes = combined(attributes: attributes, id: id, classes: classes, data: data)
+        self.attributes = attributes
         self.content = content
     }
 
-    public init(_ type: String, _ content: HTMLElement = "", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) {
+    public init(_ type: String, _ content: HTMLElement = "", attributes: [Attribute] = []) {
         self.type = type
-        self.attributes = combined(attributes: attributes, id: id, classes: classes, data: data)
+        self.attributes = attributes
         self.content = [content]
     }
 
@@ -95,13 +94,7 @@ public struct Tag: HTMLElement {
 
     private var attributeString: String {
         guard !attributes.isEmpty else { return "" }
-        return attributes.reduce("") { (result, pair) -> String in
-            var result = result
-            let (key, value) = pair
-            // TODO: escape quotes and other chars in value
-            result += " \(key)=\"\(value)\""
-            return result
-        }
+        return Attribute.tagString(attributes: attributes)
     }
 
     private func combined(attributes: HTMLAttributes, id: String?, classes: [String]?, data: HTMLAttributes?) -> HTMLAttributes {

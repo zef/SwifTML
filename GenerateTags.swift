@@ -39,7 +39,7 @@ struct TagDefinition {
         if isVoid {
             def.addLine("public func \(functionName)(\(Argument.constructString(args))) -> Tag {")
             def += Argument.attributeCombinationCode(args)
-            def.addLine("return Tag(\(tag.quoted), \"\", id: id, classes: classes, data: data, attributes: attributes)", indent: 1)
+            def.addLine("return Tag(\(tag.quoted), \"\", attributes: attributes)", indent: 1)
             def.addLine("}")
         } else {
             var contentArg = Argument(label: "content", type: "[HTMLElement]", isOptional: false, defaultValue: nil, requireLabel: false, addToAttributesAs: nil)
@@ -48,7 +48,7 @@ struct TagDefinition {
 
             def.addLine("public func \(functionName)(\(Argument.constructString(contentSuffixArgs))) -> Tag {")
             def += Argument.attributeCombinationCode(args)
-            def.addLine("return Tag(\(tag.quoted), id: id, classes: classes, data: data, attributes: attributes, content)", indent: 1)
+            def.addLine("return Tag(\(tag.quoted), attributes: attributes, content)", indent: 1)
             def.addLine("}")
 
             var contentPrefixArgs = args
@@ -56,7 +56,7 @@ struct TagDefinition {
             contentPrefixArgs.insert(contentArg, at: 0)
             def.addLine("public func \(functionName)(\(Argument.constructString(contentPrefixArgs))) -> Tag {")
             def += Argument.attributeCombinationCode(args)
-            def.addLine("return Tag(\(tag.quoted), id: id, classes: classes, data: data, attributes: attributes, [content])", indent: 1)
+            def.addLine("return Tag(\(tag.quoted), attributes: attributes, [content])", indent: 1)
             def.addLine("}")
         }
 
@@ -75,10 +75,7 @@ struct TagDefinition {
 
     static var defaultArguments: [Argument] {
         return [
-            Argument(label: "id", type: "String", isOptional: true, defaultValue: "nil", requireLabel: true, addToAttributesAs: nil),
-            Argument(label: "classes", type: "[String]", isOptional: true, defaultValue: "nil", requireLabel: true, addToAttributesAs: nil),
-            Argument(label: "data", type: "HTMLAttributes", isOptional: true, defaultValue: "nil", requireLabel: true, addToAttributesAs: nil),
-            Argument(label: "attributes", type: "HTMLAttributes", isOptional: false, defaultValue: "HTMLAttributes()", requireLabel: true, addToAttributesAs: nil)
+            Argument(label: "attributes", type: "[Attribute]", isOptional: false, defaultValue: "[]", requireLabel: true, addToAttributesAs: nil)
         ]
     }
 }
@@ -114,7 +111,12 @@ struct Argument {
         if !arguments.isEmpty {
             code.addLine("var attributes = attributes", indent: 1)
             for argument in arguments {
-                code.addLine("attributes[\"\(argument.addToAttributesAs!)\"] = \(argument.label)", indent: 1)
+                let append = "attributes.append(.attribute(\"\(argument.addToAttributesAs!)\", \(argument.label)))"
+                if argument.isOptional {
+                    code.addLine("if let \(argument.label) = \(argument.label) { \(append) }", indent: 1)
+                } else {
+                    code.addLine(append, indent: 1)
+                }
             }
         }
         return code
