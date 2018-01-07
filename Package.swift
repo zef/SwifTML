@@ -1,7 +1,14 @@
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
     name: "SwifTML",
-    exclude: ["GenerateTags.swift"]
+    targets: [
+        .target(
+            name: "SwifTML",
+            path: "Sources"
+            // exclude: ["GenerateTags.swift"]
+        )
+    ]
 )
 
