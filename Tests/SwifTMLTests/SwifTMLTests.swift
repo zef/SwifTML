@@ -15,7 +15,7 @@ class SwifTMLTests: XCTestCase {
     func testAttributes() {
         let id = Attribute.id("test")
         let klass = Attribute.class("test")
-        XCTAssertEqual(Attribute.combined(attributes: [id, klass]), "id=\"test\" class=\"test\"")
+        XCTAssertEqual(Attribute.tagString(attributes: [id, klass]), "id=\"test\" class=\"test\"")
     }
 
     static var allTests = [
