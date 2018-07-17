@@ -6,7 +6,6 @@ let webView = UIWebView(frame: CGRect(x: 0, y: 0, width: 400.0, height: 600.0))
 PlaygroundPage.current.liveView = webView
 
 struct MyView: HTMLView {
-
     var render: String {
         return HTML5(
             head: [
@@ -31,7 +30,6 @@ struct MyView: HTMLView {
         ).render
     }
 }
-
 
 let html = MyView().render
 webView.loadHTMLString(html, baseURL: nil)
