@@ -17,6 +17,14 @@ public enum Attribute {
     case data(String, String)
     case attribute(String, String)
     case style(String)
+
+    // TODO, add:
+    // case attributes([String: String])
+    // and find the right pattern for combining attributes properly.
+    // the ability to take multiple classes is a bit hackish right now.
+    // Would like to remove the `attributePair` idea and come at it from a different direction
+    // because not all attributes are properly expressed as a "pair"
+
     // could be useful to have some resettable attributes?
     // case resetClasses
     // case resetStyle
@@ -47,7 +55,16 @@ public enum Attribute {
         var normalized = [String: String]()
         for attribute in attributes {
             let pair = attribute.attributePair
-            normalized[pair.key] = pair.value
+            switch attribute {
+            case .class, .classes:
+                if let existing = normalized[pair.key] {
+                    normalized[pair.key] = "\(existing) \(pair.value)"
+                } else {
+                    fallthrough
+                }
+            default:
+                normalized[pair.key] = pair.value
+            }
         }
         return normalized.map { key, value in
             return "\(key)=\"\(value)\""
@@ -94,7 +111,7 @@ public struct Tag: HTMLElement {
 
     private var attributeString: String {
         guard !attributes.isEmpty else { return "" }
-        return Attribute.tagString(attributes: attributes)
+        return " " + Attribute.tagString(attributes: attributes)
     }
 
     private func combined(attributes: HTMLAttributes, id: String?, classes: [String]?, data: HTMLAttributes?) -> HTMLAttributes {
