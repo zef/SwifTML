@@ -2,445 +2,454 @@
 
 extension SwifTML {
 
-    public func Html(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("html", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Html(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("html", attributes: attributes, content)
     }
-    public func Html(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("html", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Html(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("html", attributes: attributes, [content])
     }
-    public static func Html(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("html", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Html(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("html", attributes: attributes, content)
     }
-    public static func Html(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("html", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Head(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("head", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Head(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("head", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Head(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("head", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Head(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("head", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Html(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("html", attributes: attributes, [content])
     }
 
 
-    public func Body(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("body", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Head(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("head", attributes: attributes, content)
     }
-    public func Body(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("body", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Head(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("head", attributes: attributes, [content])
     }
-    public static func Body(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("body", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Head(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("head", attributes: attributes, content)
     }
-    public static func Body(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("body", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Title(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Title(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Title(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Title(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("title", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Head(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("head", attributes: attributes, [content])
     }
 
 
-    public func Div(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("div", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Body(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("body", attributes: attributes, content)
     }
-    public func Div(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("div", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Body(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("body", attributes: attributes, [content])
     }
-    public static func Div(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("div", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Body(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("body", attributes: attributes, content)
     }
-    public static func Div(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("div", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Span(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("span", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Span(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("span", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Span(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("span", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Span(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("span", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Body(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("body", attributes: attributes, [content])
     }
 
 
-    public func Article(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("article", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Title(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("title", attributes: attributes, content)
     }
-    public func Article(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("article", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Title(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("title", attributes: attributes, [content])
     }
-    public static func Article(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("article", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Title(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("title", attributes: attributes, content)
     }
-    public static func Article(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("article", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Aside(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("aside", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Aside(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("aside", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Aside(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("aside", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Aside(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("aside", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Title(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("title", attributes: attributes, [content])
     }
 
 
-    public func Header(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("header", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Div(_ attribute: Attribute, _ content: [HTMLElement]) -> Tag {
+        return Tag("div", attributes: [attribute], content)
     }
-    public func Header(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("header", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Div(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("div", attributes: attributes, content)
     }
-    public static func Header(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("header", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Div(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("div", attributes: attributes, [content])
     }
-    public static func Header(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("header", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Div(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("div", attributes: attributes, content)
     }
-
-
-    public func Footer(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("footer", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Footer(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("footer", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Footer(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("footer", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Footer(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("footer", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Div(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("div", attributes: attributes, [content])
     }
 
 
-    public func Nav(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("nav", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Span(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("span", attributes: attributes, content)
     }
-    public func Nav(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("nav", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Span(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("span", attributes: attributes, [content])
     }
-    public static func Nav(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("nav", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Span(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("span", attributes: attributes, content)
     }
-    public static func Nav(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("nav", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Main(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("main", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Main(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("main", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Main(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("main", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Main(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("main", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Span(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("span", attributes: attributes, [content])
     }
 
 
-    public func Section(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("section", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Article(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("article", attributes: attributes, content)
     }
-    public func Section(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("section", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Article(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("article", attributes: attributes, [content])
     }
-    public static func Section(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("section", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Article(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("article", attributes: attributes, content)
     }
-    public static func Section(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("section", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func H1(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h1", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func H1(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h1", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func H1(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h1", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func H1(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h1", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Article(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("article", attributes: attributes, [content])
     }
 
 
-    public func H2(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h2", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Aside(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("aside", attributes: attributes, content)
     }
-    public func H2(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h2", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Aside(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("aside", attributes: attributes, [content])
     }
-    public static func H2(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h2", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Aside(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("aside", attributes: attributes, content)
     }
-    public static func H2(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h2", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func H3(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h3", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func H3(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h3", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func H3(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h3", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func H3(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h3", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Aside(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("aside", attributes: attributes, [content])
     }
 
 
-    public func H4(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h4", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Header(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("header", attributes: attributes, content)
     }
-    public func H4(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h4", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Header(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("header", attributes: attributes, [content])
     }
-    public static func H4(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h4", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Header(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("header", attributes: attributes, content)
     }
-    public static func H4(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h4", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func H5(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h5", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func H5(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h5", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func H5(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h5", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func H5(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h5", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Header(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("header", attributes: attributes, [content])
     }
 
 
-    public func H6(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h6", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Footer(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("footer", attributes: attributes, content)
     }
-    public func H6(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h6", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Footer(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("footer", attributes: attributes, [content])
     }
-    public static func H6(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("h6", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Footer(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("footer", attributes: attributes, content)
     }
-    public static func H6(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("h6", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func P(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("p", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func P(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("p", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func P(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("p", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func P(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("p", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Footer(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("footer", attributes: attributes, [content])
     }
 
 
-    public func Strong(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("strong", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Nav(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("nav", attributes: attributes, content)
     }
-    public func Strong(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("strong", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Nav(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("nav", attributes: attributes, [content])
     }
-    public static func Strong(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("strong", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Nav(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("nav", attributes: attributes, content)
     }
-    public static func Strong(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("strong", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Em(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("em", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Em(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("em", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Em(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("em", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Em(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("em", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Nav(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("nav", attributes: attributes, [content])
     }
 
 
-    public func I(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("i", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Main(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("main", attributes: attributes, content)
     }
-    public func I(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("i", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Main(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("main", attributes: attributes, [content])
     }
-    public static func I(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("i", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Main(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("main", attributes: attributes, content)
     }
-    public static func I(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("i", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Ul(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("ul", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Ul(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("ul", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Ul(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("ul", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Ul(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("ul", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Main(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("main", attributes: attributes, [content])
     }
 
 
-    public func Ol(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("ol", id: id, classes: classes, data: data, attributes: attributes, content)
+    public func Section(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("section", attributes: attributes, content)
     }
-    public func Ol(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("ol", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public func Section(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("section", attributes: attributes, [content])
     }
-    public static func Ol(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("ol", id: id, classes: classes, data: data, attributes: attributes, content)
+    public static func Section(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("section", attributes: attributes, content)
     }
-    public static func Ol(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("ol", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Li(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("li", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public func Li(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("li", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-    public static func Li(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
-        return Tag("li", id: id, classes: classes, data: data, attributes: attributes, content)
-    }
-    public static func Li(_ content: HTMLElement, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("li", id: id, classes: classes, data: data, attributes: attributes, [content])
+    public static func Section(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("section", attributes: attributes, [content])
     }
 
 
-    public func Br(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("br", "", id: id, classes: classes, data: data, attributes: attributes)
+    public func H1(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h1", attributes: attributes, content)
     }
-    public static func Br(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("br", "", id: id, classes: classes, data: data, attributes: attributes)
+    public func H1(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h1", attributes: attributes, [content])
     }
-
-
-    public func Hr(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("hr", "", id: id, classes: classes, data: data, attributes: attributes)
+    public static func H1(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h1", attributes: attributes, content)
     }
-    public static func Hr(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("hr", "", id: id, classes: classes, data: data, attributes: attributes)
+    public static func H1(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h1", attributes: attributes, [content])
     }
 
 
-    public func Meta(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("meta", "", id: id, classes: classes, data: data, attributes: attributes)
+    public func H2(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h2", attributes: attributes, content)
     }
-    public static func Meta(id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        return Tag("meta", "", id: id, classes: classes, data: data, attributes: attributes)
+    public func H2(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h2", attributes: attributes, [content])
+    }
+    public static func H2(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h2", attributes: attributes, content)
+    }
+    public static func H2(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h2", attributes: attributes, [content])
     }
 
 
-    public func Link(to: String, target: String? = nil, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
+    public func H3(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h3", attributes: attributes, content)
+    }
+    public func H3(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h3", attributes: attributes, [content])
+    }
+    public static func H3(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h3", attributes: attributes, content)
+    }
+    public static func H3(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h3", attributes: attributes, [content])
+    }
+
+
+    public func H4(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h4", attributes: attributes, content)
+    }
+    public func H4(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h4", attributes: attributes, [content])
+    }
+    public static func H4(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h4", attributes: attributes, content)
+    }
+    public static func H4(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h4", attributes: attributes, [content])
+    }
+
+
+    public func H5(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h5", attributes: attributes, content)
+    }
+    public func H5(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h5", attributes: attributes, [content])
+    }
+    public static func H5(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h5", attributes: attributes, content)
+    }
+    public static func H5(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h5", attributes: attributes, [content])
+    }
+
+
+    public func H6(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h6", attributes: attributes, content)
+    }
+    public func H6(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h6", attributes: attributes, [content])
+    }
+    public static func H6(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("h6", attributes: attributes, content)
+    }
+    public static func H6(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("h6", attributes: attributes, [content])
+    }
+
+
+    public func P(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("p", attributes: attributes, content)
+    }
+    public func P(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("p", attributes: attributes, [content])
+    }
+    public static func P(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("p", attributes: attributes, content)
+    }
+    public static func P(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("p", attributes: attributes, [content])
+    }
+
+
+    public func Strong(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("strong", attributes: attributes, content)
+    }
+    public func Strong(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("strong", attributes: attributes, [content])
+    }
+    public static func Strong(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("strong", attributes: attributes, content)
+    }
+    public static func Strong(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("strong", attributes: attributes, [content])
+    }
+
+
+    public func Em(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("em", attributes: attributes, content)
+    }
+    public func Em(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("em", attributes: attributes, [content])
+    }
+    public static func Em(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("em", attributes: attributes, content)
+    }
+    public static func Em(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("em", attributes: attributes, [content])
+    }
+
+
+    public func I(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("i", attributes: attributes, content)
+    }
+    public func I(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("i", attributes: attributes, [content])
+    }
+    public static func I(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("i", attributes: attributes, content)
+    }
+    public static func I(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("i", attributes: attributes, [content])
+    }
+
+
+    public func Ul(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("ul", attributes: attributes, content)
+    }
+    public func Ul(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("ul", attributes: attributes, [content])
+    }
+    public static func Ul(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("ul", attributes: attributes, content)
+    }
+    public static func Ul(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("ul", attributes: attributes, [content])
+    }
+
+
+    public func Ol(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("ol", attributes: attributes, content)
+    }
+    public func Ol(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("ol", attributes: attributes, [content])
+    }
+    public static func Ol(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("ol", attributes: attributes, content)
+    }
+    public static func Ol(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("ol", attributes: attributes, [content])
+    }
+
+
+    public func Li(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("li", attributes: attributes, content)
+    }
+    public func Li(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("li", attributes: attributes, [content])
+    }
+    public static func Li(attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
+        return Tag("li", attributes: attributes, content)
+    }
+    public static func Li(_ content: HTMLElement, attributes: [Attribute] = []) -> Tag {
+        return Tag("li", attributes: attributes, [content])
+    }
+
+
+    public func Br(attributes: [Attribute] = []) -> Tag {
+        return Tag("br", "", attributes: attributes)
+    }
+    public static func Br(attributes: [Attribute] = []) -> Tag {
+        return Tag("br", "", attributes: attributes)
+    }
+
+
+    public func Hr(attributes: [Attribute] = []) -> Tag {
+        return Tag("hr", "", attributes: attributes)
+    }
+    public static func Hr(attributes: [Attribute] = []) -> Tag {
+        return Tag("hr", "", attributes: attributes)
+    }
+
+
+    public func Meta(_ attribute: Attribute) -> Tag {
+        return Tag("meta", "", attributes: [attribute])
+    }
+    public static func Meta(_ attribute: Attribute) -> Tag {
+        return Tag("meta", "", attributes: [attribute])
+    }
+    public func Meta(_ attributes: [Attribute] = []) -> Tag {
+        return Tag("meta", "", attributes: attributes)
+    }
+    public static func Meta(_ attributes: [Attribute] = []) -> Tag {
+        return Tag("meta", "", attributes: attributes)
+    }
+
+
+    public func Link(to: String, target: String? = nil, attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
         var attributes = attributes
-        attributes["href"] = to
-        attributes["target"] = target
-        return Tag("a", id: id, classes: classes, data: data, attributes: attributes, content)
+        attributes.append(.attribute("href", to))
+        if let target = target { attributes.append(.attribute("target", target)) }
+        return Tag("a", attributes: attributes, content)
     }
-    public func Link(_ content: HTMLElement, to: String, target: String? = nil, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+    public func Link(_ content: HTMLElement, to: String, target: String? = nil, attributes: [Attribute] = []) -> Tag {
         var attributes = attributes
-        attributes["href"] = to
-        attributes["target"] = target
-        return Tag("a", id: id, classes: classes, data: data, attributes: attributes, [content])
+        attributes.append(.attribute("href", to))
+        if let target = target { attributes.append(.attribute("target", target)) }
+        return Tag("a", attributes: attributes, [content])
     }
-    public static func Link(to: String, target: String? = nil, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) -> Tag {
+    public static func Link(to: String, target: String? = nil, attributes: [Attribute] = [], _ content: [HTMLElement]) -> Tag {
         var attributes = attributes
-        attributes["href"] = to
-        attributes["target"] = target
-        return Tag("a", id: id, classes: classes, data: data, attributes: attributes, content)
+        attributes.append(.attribute("href", to))
+        if let target = target { attributes.append(.attribute("target", target)) }
+        return Tag("a", attributes: attributes, content)
     }
-    public static func Link(_ content: HTMLElement, to: String, target: String? = nil, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+    public static func Link(_ content: HTMLElement, to: String, target: String? = nil, attributes: [Attribute] = []) -> Tag {
         var attributes = attributes
-        attributes["href"] = to
-        attributes["target"] = target
-        return Tag("a", id: id, classes: classes, data: data, attributes: attributes, [content])
-    }
-
-
-    public func Img(src: String, alt: String = "", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        var attributes = attributes
-        attributes["src"] = src
-        attributes["alt"] = alt
-        return Tag("img", "", id: id, classes: classes, data: data, attributes: attributes)
-    }
-    public static func Img(src: String, alt: String = "", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
-        var attributes = attributes
-        attributes["src"] = src
-        attributes["alt"] = alt
-        return Tag("img", "", id: id, classes: classes, data: data, attributes: attributes)
+        attributes.append(.attribute("href", to))
+        if let target = target { attributes.append(.attribute("target", target)) }
+        return Tag("a", attributes: attributes, [content])
     }
 
 
-    public func Stylesheet(at: String = "", rel: String = "stylesheet", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+    public func Img(src: String, alt: String = "", attributes: [Attribute] = []) -> Tag {
         var attributes = attributes
-        attributes["href"] = at
-        attributes["rel"] = rel
-        return Tag("link", "", id: id, classes: classes, data: data, attributes: attributes)
+        attributes.append(.attribute("src", src))
+        attributes.append(.attribute("alt", alt))
+        return Tag("img", "", attributes: attributes)
     }
-    public static func Stylesheet(at: String = "", rel: String = "stylesheet", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) -> Tag {
+    public static func Img(src: String, alt: String = "", attributes: [Attribute] = []) -> Tag {
         var attributes = attributes
-        attributes["href"] = at
-        attributes["rel"] = rel
-        return Tag("link", "", id: id, classes: classes, data: data, attributes: attributes)
+        attributes.append(.attribute("src", src))
+        attributes.append(.attribute("alt", alt))
+        return Tag("img", "", attributes: attributes)
+    }
+
+
+    public func Stylesheet(at: String = "", rel: String = "stylesheet", attributes: [Attribute] = []) -> Tag {
+        var attributes = attributes
+        attributes.append(.attribute("href", at))
+        attributes.append(.attribute("rel", rel))
+        return Tag("link", "", attributes: attributes)
+    }
+    public static func Stylesheet(at: String = "", rel: String = "stylesheet", attributes: [Attribute] = []) -> Tag {
+        var attributes = attributes
+        attributes.append(.attribute("href", at))
+        attributes.append(.attribute("rel", rel))
+        return Tag("link", "", attributes: attributes)
     }
 
 }

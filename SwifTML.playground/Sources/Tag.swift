@@ -10,21 +10,83 @@ extension String: HTMLElement {
     public var htmlString: String { return self }
 }
 
+public enum Attribute {
+    case id(String)
+    case `class`(String)
+    case classes([String])
+    case data(String, String)
+    case attribute(String, String)
+    case style(String)
+
+    // TODO, add:
+    // case attributes([String: String])
+    // and find the right pattern for combining attributes properly.
+    // the ability to take multiple classes is a bit hackish right now.
+    // Would like to remove the `attributePair` idea and come at it from a different direction
+    // because not all attributes are properly expressed as a "pair"
+
+    // could be useful to have some resettable attributes?
+    // case resetClasses
+    // case resetStyle
+    // case resetAll
+
+    typealias AttributePair = (key: String, value: String)
+
+    var attributePair: AttributePair {
+        switch self {
+        case .id(let value):
+            return ("id", value)
+        case .class(let value):
+            return ("class", value)
+        case .classes(let value):
+            return ("class", value.joined(separator: " "))
+        case .data(let key, let value):
+            // TODO: escape quotes and other chars in value
+            // anywhere else besides data? Probably style too?
+            return ("data-\(key)", value)
+        case .attribute(let key, let value):
+            return (key, value)
+        case .style(let value):
+            return ("style", value)
+        }
+    }
+
+    static func tagString(attributes: [Attribute]) -> String {
+        var normalized = [String: String]()
+        for attribute in attributes {
+            let pair = attribute.attributePair
+            switch attribute {
+            case .class, .classes:
+                if let existing = normalized[pair.key] {
+                    normalized[pair.key] = "\(existing) \(pair.value)"
+                } else {
+                    fallthrough
+                }
+            default:
+                normalized[pair.key] = pair.value
+            }
+        }
+        return normalized.map { key, value in
+            return "\(key)=\"\(value)\""
+        }.joined(separator: " ")
+    }
+}
+
 public struct Tag: HTMLElement {
     public var type: String
     public var content = [HTMLElement]()
-    public var attributes = HTMLAttributes()
+    public var attributes = [Attribute]()
     public var whitespace = Whitespace.None
 
-    public init(_ type: String, id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes(), _ content: [HTMLElement]) {
+    public init(_ type: String, attributes: [Attribute] = [], _ content: [HTMLElement]) {
         self.type = type
-        self.attributes = combined(attributes: attributes, id: id, classes: classes, data: data)
+        self.attributes = attributes
         self.content = content
     }
 
-    public init(_ type: String, _ content: HTMLElement = "", id: String? = nil, classes: [String]? = nil, data: HTMLAttributes? = nil, attributes: HTMLAttributes = HTMLAttributes()) {
+    public init(_ type: String, _ content: HTMLElement = "", attributes: [Attribute] = []) {
         self.type = type
-        self.attributes = combined(attributes: attributes, id: id, classes: classes, data: data)
+        self.attributes = attributes
         self.content = [content]
     }
 
@@ -49,13 +111,7 @@ public struct Tag: HTMLElement {
 
     private var attributeString: String {
         guard !attributes.isEmpty else { return "" }
-        return attributes.reduce("") { (result, pair) -> String in
-            var result = result
-            let (key, value) = pair
-            // TODO: escape quotes and other chars in value
-            result += " \(key)=\"\(value)\""
-            return result
-        }
+        return " " + Attribute.tagString(attributes: attributes)
     }
 
     private func combined(attributes: HTMLAttributes, id: String?, classes: [String]?, data: HTMLAttributes?) -> HTMLAttributes {
@@ -81,28 +137,6 @@ extension Tag: CustomStringConvertible {
         return htmlString
     }
 }
-
-prefix operator <<
-prefix func <<(tag: Tag) -> Tag {
-    var tag = tag
-    tag.whitespace.combine(.Pre)
-    return tag
-}
-
-postfix operator >>
-postfix func >>(tag: Tag) -> Tag {
-    var tag = tag
-    tag.whitespace.combine(.Post)
-    return tag
-}
-
-prefix operator <<>>
-prefix func <<>>(tag: Tag) -> Tag {
-    var tag = tag
-    tag.whitespace = .All
-    return tag
-}
-
 
 extension Tag {
     public enum Whitespace {

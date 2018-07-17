@@ -2,7 +2,7 @@ import UIKit
 import WebKit
 import PlaygroundSupport
 
-let webView = UIWebView(frame: CGRect(x: 0, y: 0, width: 600.0, height: 600.0))
+let webView = UIWebView(frame: CGRect(x: 0, y: 0, width: 400.0, height: 600.0))
 PlaygroundPage.current.liveView = webView
 
 struct MyView: HTMLView {
@@ -14,10 +14,12 @@ struct MyView: HTMLView {
             ], body: [
                 Header(H1("We're writing HTML")),
                 P("But in Swift"),
-                P("Tags can have id, classes, and attributes added to them like this one does.",
-                    id: "who-uses-ids-anymore",
-                    classes: ["whatever"],
-                    attributes: ["style": "background-color: #222; color: #fff; padding: 4px"]),
+                P("Tags can have IDs, classes, and other attributes added to them like this one does.",
+                  attributes: [
+                    .id("who-uses-ids-anymore"),
+                    .class("first"), .class("second"),
+                    .style("background-color: #222; color: #fff; padding: 4px")
+                ]),
                 P("Now let's make a list for fun!"),
                 Hr(),
                 Section([
